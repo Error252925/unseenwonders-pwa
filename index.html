@@ -591,61 +591,82 @@ grayscale {
 
 <!-- Form Container -->
 <section id="form">
+  <div class="container">
+    <h2 class="mb-4 text-center">Complaint / Service Request Form</h2>
+     
+    <!-- ✅ action aur method hata diya -->
+    <form id="complaintForm" class="p-4 border rounded bg-light shadow-sm">
 
-<div class="container">
-  <h2 class="mb-4 text-center">Complaint / Service Request Form</h2>
-   
-  <form action="" method="POST" enctype="multipart/form-data" class="p-4 border rounded bg-light shadow-sm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" name="name" id="name" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-      <label for="name" class="form-label">Full Name</label>
-      <input type="text" name="name" id="name" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" name="email" id="email" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-      <label for="email" class="form-label">Email Address</label>
-      <input type="email" name="email" id="email" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" name="phone" id="phone" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-      <label for="phone" class="form-label">Phone Number</label>
-      <input type="text" name="phone" id="phone" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Issue Category</label>
+        <select name="category" id="category" class="form-select" required>
+          <option value="">-- Select Category --</option>
+          <option>Water Supply</option>
+          <option>Electricity</option>
+          <option>Road Damage</option>
+          <option>Garbage Issue</option>
+          <option>Others</option>
+        </select>
+      </div>
 
-    <div class="mb-3">
-      <label for="category" class="form-label">Issue Category</label>
-      <select name="category" id="category" class="form-select" required>
-        <option value="">-- Select Category --</option>
-        <option>Water Supply</option>
-        <option>Electricity</option>
-        <option>Road Damage</option>
-        <option>Garbage Issue</option>
-        <option>Others</option>
-      </select>
-    </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Issue Description</label>
+        <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
+      </div>
 
-    <div class="mb-3">
-      <label for="description" class="form-label">Issue Description</label>
-      <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
-    </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" name="location" id="location" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-      <label for="location" class="form-label">Location</label>
-      <input type="text" name="location" id="location" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="photo" class="form-label">Upload Photo (optional)</label>
+        <input type="file" name="photo" id="photo" class="form-control">
+      </div>
 
-    <div class="mb-3">
-      <label for="photo" class="form-label">Upload Photo (optional)</label>
-      <input type="file" name="photo" id="photo" class="form-control">
-    </div>
+      <div class="text-center">
+        <button type="submit" name="submit" class="btn btn-primary px-4">Submit Complaint</button>
+      </div>
 
-    <div class="text-center">
-      <button type="submit" name="submit" class="btn btn-primary px-4">Submit Complaint</button>
-    </div>
+    </form>
 
-  </form>
-</div> 
+    <!-- ✅ yahan success message show hoga -->
+    <div id="message" class="mt-3 text-center fw-bold text-success"></div>
+  </div> 
 </section>
+<br>
+
+<!-- ✅ Script -->
+<script>
+  document.getElementById("complaintForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // page reload/POST ko rokta hai
+
+      // success message show karega
+      document.getElementById("message").innerText = "✅ Complaint submitted successfully! (Demo Only)";
+
+      // optional: popup alert
+      alert("✅ Complaint submitted successfully! (Demo Only)");
+
+      // form reset
+      this.reset();
+  });
+</script>
+
 <br>
 
    
@@ -1330,4 +1351,5 @@ $stmt->bind_param("sssssssss", $reg_id, $name, $email, $phone, $category, $descr
     $stmt->close();
     $mysqli->close();
 }
+
 ?> 

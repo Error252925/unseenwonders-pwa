@@ -1,0 +1,1333 @@
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>QuickFix</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <!-- PWA link -->
+  <link rel="manifest" href="manifest.json">
+  
+  <script>
+  
+	if ("serviceWorker" in navigator) {
+		navigator.serviceWorker.register("service-worker.js")
+		.then(() => console.log("Service Worker Registered"));
+	}
+
+  
+  </script>
+
+
+  <!-- Favicons -->
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+
+  <!-- about section -->
+  <style>
+  #about {
+  background-color: rgba(0, 0, 0, 0.6); /* fallback */
+  color: #fff;
+  overflow: hidden;
+}
+
+.image-overlay {
+  background: url('assets/img/1.jpg') center center/cover no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15; /* adjust transparency here */
+  z-index: 1;
+}
+
+#about .container {
+  position: relative;
+  z-index: 2;
+}
+
+<!-- title visible -->
+#about h2 {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+<!-- para visible -->
+#about p {
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+
+
+#about h2 {
+  color: #ffc107; /* Bootstrap warning yellow */
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6); /* Optional: improves contrast */
+}
+
+
+marquee {
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+
+.fixed-story-img {
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.gallery-img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  #accountDropdown span {
+    display: none;
+  }
+}
+
+/* High Contrast */
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+.high-contrast a {
+  color: yellow !important;
+}
+
+/* Dyslexia Font */
+.dyslexia-font {
+  font-family: 'OpenDyslexic', Arial, sans-serif !important;
+}
+
+/* Grayscale */
+.grayscale {
+  filter: grayscale(100%);
+}
+
+/* Underline All Links */
+.underline-links a {
+  text-decoration: underline !important;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Smooth transition */
+body {
+  transition: all 0.4s ease-in-out;
+}
+
+
+</style>
+
+
+    
+</head>
+
+<!-- Complaint Marquee Section -->
+<div class="bg-warning py-2 text-dark shadow-sm">
+  <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();" style="font-weight: 500;">
+    📝 <strong>Water Supply</strong> issue reported in <em>Gandhi Nagar</em> &nbsp; | 
+    ⚡ <strong>Electricity</strong> failure in <em>Port Blair</em> &nbsp; | 
+    🛣️ <strong>Road Damage</strong> near <em>MG Road</em> &nbsp; | 
+    🗑️ <strong>Garbage Issue</strong> in <em>Aberdeen Bazaar</em> &nbsp; | 
+    💡 <strong>Street Light</strong> not working at <em>Junglighat</em> &nbsp; | 
+    🚰 <strong>Drainage Blockage</strong> in <em>Delanipur</em> &nbsp; | 
+    🚧 <strong>Illegal Construction</strong> at <em>Shadipur</em> &nbsp; | 
+    🔊 <strong>Noise Pollution</strong> complaint from <em>Dollygunj</em>
+  </marquee>
+</div>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.png" alt="">
+        <h1 class="sitename">QuickFix</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+         <li><a href="#hero" class="active"><i class="bi bi-house-door-fill me-1"></i> Home</a></li>
+<li><a href="#about"><i class="bi bi-info-circle-fill me-1"></i> About</a></li>
+<li class="dropdown">
+  <a href="#"><span><i class="bi bi-activity me-1"></i> Activity</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+  <ul>
+    <li><a href="#gallery"><i class="bi bi-images me-1"></i> Gallery</a></li>
+    <li><a href="#success-stories"><i class="bi bi-stars me-1"></i> Success Stories</a></li>
+	    <li><a href="#services"><i class="bi bi-tools me-1"></i> Services</a></li>
+    <li><a href="#emergency-contacts"><i class="bi bi-telephone-forward-fill me-1"></i> Emergency Contact Numbers</a></li>
+	
+
+    <li><a href="#reviews"><i class="bi bi-chat-square-quote-fill me-1"></i> Reviews</a></li>
+    <li><a href="#support"><i class="bi bi-question-circle-fill me-1"></i> Help/Support</a></li>
+  </ul>
+</li>
+
+<li><a href="#track"><i class="bi bi-binoculars-fill me-1"></i> Track Your Complaint</a></li>
+
+		  
+		  <!-- Add this inside your <ul> list in the navbar -->
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="bi bi-person-circle me-1"></i> Account
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+    <li><a class="dropdown-item" href="login.php"><i class="bi bi-box-arrow-in-right me-2"></i>Login</a></li>
+    <li><a class="dropdown-item" href="register.php"><i class="bi bi-person-plus me-2"></i>Register</a></li>
+  </ul>
+</li>
+
+
+<!-- Accessibility Dropdown Menu (HTML) -->
+<li class="dropdown">
+  <a href="#"><span><i class="bi bi-universal-access"></i> Accessibility</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+  <ul>
+    <li><a href="#" onclick="toggleHighContrast()"><i class="bi bi-easel"></i> High Contrast</a></li>
+    <li><a href="#" onclick="increaseFontSize()"><i class="bi bi-zoom-in"></i> Increase Font</a></li>
+    <li><a href="#" onclick="decreaseFontSize()"><i class="bi bi-zoom-out"></i> Decrease Font</a></li>
+    <li><a href="#" onclick="toggleDyslexiaFont()"><i class="bi bi-type"></i> Dyslexia Font</a></li>
+    <li><a href="#" onclick="toggleGrayscale()"><i class="bi bi-palette"></i> Grayscale</a></li>
+    <li><a href="#" onclick="underlineLinks()"><i class="bi bi-link-45deg"></i> Underline Links</a></li>
+    <li><a href="#" onclick="toggleDarkMode()"><i class="bi bi-moon-stars"></i> Dark Mode</a></li>
+    <li><a href="#" onclick="resetAccessibility()"><i class="bi bi-arrow-counterclockwise"></i> Reset All</a></li>
+  </ul>
+</li>
+
+<!-- JavaScript Accessibility Functions -->
+<script>
+let fontSize = 100;
+let isHighContrast = false;
+let isDyslexia = false;
+let isGrayscale = false;
+let isDark = false;
+
+function increaseFontSize() {
+  fontSize += 10;
+  document.body.style.fontSize = fontSize + '%';
+}
+
+function decreaseFontSize() {
+  fontSize = Math.max(70, fontSize - 10);
+  document.body.style.fontSize = fontSize + '%';
+}
+
+function toggleHighContrast() {
+  document.body.classList.toggle('high-contrast');
+}
+
+function toggleGrayscale() {
+  document.body.classList.toggle('grayscale');
+}
+
+function toggleDyslexiaFont() {
+  document.body.classList.toggle('dyslexia-font');
+}
+
+function underlineLinks() {
+  document.querySelectorAll('a').forEach(link => link.style.textDecoration = 'underline');
+}
+
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+}
+
+function resetAccessibility() {
+  fontSize = 100;
+  document.body.style.fontSize = '';
+  document.body.classList.remove('high-contrast', 'grayscale', 'dyslexia-font', 'dark-mode');
+  document.querySelectorAll('a').forEach(link => link.style.textDecoration = '');
+}
+</script>
+
+<!-- CSS Styles -->
+<style>
+.high-contrast {
+  filter: contrast(150%) brightness(1.2);
+  background-color: #000;
+  color: #fff;
+}
+
+grayscale {
+  filter: grayscale(100%);
+}
+
+.dyslexia-font {
+  font-family: 'OpenDyslexic', Arial, sans-serif;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+</style>
+  
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+		
+		
+      </nav>
+
+    <!-- Complaint Marquee Section -->
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+           <h1>Smart Solutions for Public Complaints & Service Requests</h1>
+           <p>QuickFix empowers citizens to report issues, track complaint status in real-time, and receive timely resolutions — all through a seamless, user-friendly platform built with modern web technologies.</p>
+
+            <div class="d-flex">
+           
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/s1.webp" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    
+
+    <!-- About Section -->
+	<section id="about" class="about section position-relative text-white py-5">
+  <div class="image-overlay"></div> <!-- Transparent Background Image -->
+
+  <div class="container position-relative" data-aos="fade-up">
+    <div class="section-title text-center mb-4">
+      <h2>About Our Complaint & Service Request System</h2>
+      <p class="lead">Our system simplifies how users report issues or request services. It enables quick submission, transparent tracking, and timely resolution, ensuring a better experience for citizens and administrators alike.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <ul class="list-unstyled fs-5">
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Easy-to-use complaint form</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Unique ID-based tracking system</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Real-time status updates (Pending to Resolved)</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Admin panel for quick actions</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Feedback collection post resolution</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- /About Section -->
+
+    <!-- Stats Section -->
+	<section id="stats" class="stats section">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4">
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span id="stat-total" class="purecounter">0</span>
+          <p>Total Complaints</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span id="stat-resolved" class="purecounter">0</span>
+          <p>Resolved Complaints</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span id="stat-pending" class="purecounter">0</span>
+          <p>Pending Complaints</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span id="stat-agents" class="purecounter">0</span>
+          <p>Support Agents</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+    <!-- /Stats Section -->
+
+ <!-- Gallery Section -->
+<section id="gallery" class="py-5 bg-white">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h3 class="text-primary">Photo Gallery</h3>
+      <p class="text-muted">Snapshots from the field: real-time action, resolutions, and community support.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Image 1 -->
+      <div class="col-md-4 col-sm-6">
+        <a href="assets/img/gallery1.jpg">
+          <img src="assets/img/gallery1.jpg" class="img-fluid gallery-img rounded shadow-sm" alt="">
+		 
+        </a>
+      </div>
+
+      <!-- Image 2 -->
+      <div class="col-md-4 col-sm-6">
+        <a href="assets/img/gallery2.jpg">
+          <img src="assets/img/gallery2.jpg" class="img-fluid gallery-img rounded shadow-sm" alt="">
+        </a>
+      </div>
+
+      <!-- Image 3 -->
+      <div class="col-md-4 col-sm-6">
+        <a href="assets/img/gallery3.avif">
+          <img src="assets/img/gallery3.avif" class="img-fluid gallery-img rounded shadow-sm" alt="">
+        </a>
+      </div>
+
+      <!-- Add more images similarly -->
+      <!-- Image 4 -->
+      <div class="col-md-4 col-sm-6">
+        <a href="assets/img/gallery4.jpg">
+          <img src="assets/img/gallery4.jpg" class="img-fluid gallery-img rounded shadow-sm" alt="">
+        </a>
+      </div>
+
+      <!-- Image 5 -->
+      <div class="col-md-4 col-sm-6">
+        <a href="assets/img/gallery5.jpg">
+          <img src="assets/img/gallery5.jpg" class="img-fluid gallery-img rounded shadow-sm" alt="">
+        </a>
+      </div>
+
+      <!-- Image 6 -->
+      <div class="col-md-4 col-sm-6">
+        <a href="assets/img/gallery6.webp">
+          <img src="assets/img/gallery6.webp" class="img-fluid gallery-img rounded shadow-sm" alt="">
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+   
+ 
+<!-- Our Services Section -->
+<section id="services" class="services section bg-light py-5">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title text-center mb-5">
+      <h2>Our Services</h2>
+      <p class="text-muted">We address the most common urban issues to ensure quality service and quicker resolutions.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Water Supply -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 text-center">
+          <img src="assets/img/services/water.webp" class="card-img-top p-4" style="height: 180px; object-fit: contain;" alt="Water Supply">
+          <div class="card-body">
+            <h5 class="card-title">Water Supply Issues</h5>
+            <p class="card-text">Report broken pipelines, water shortages, or contamination. We ensure clean and continuous supply.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Electricity -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 text-center">
+          <img src="assets/img/services/electricity.jpg" class="card-img-top p-4" style="height: 180px; object-fit: contain;" alt="Electricity">
+          <div class="card-body">
+            <h5 class="card-title">Electricity Complaints</h5>
+            <p class="card-text">Facing power cuts, voltage issues or damaged wires? Register your complaint for a quick fix.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Road Damage -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 text-center">
+          <img src="assets/img/services/road.jpg" class="card-img-top p-4" style="height: 180px; object-fit: contain;" alt="Road Damage">
+          <div class="card-body">
+            <h5 class="card-title">Road Damage Reporting</h5>
+            <p class="card-text">Potholes or broken pavements? Raise a complaint and help improve road safety in your area.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Garbage Issue -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 text-center">
+          <img src="assets/img/services/garbage.jpg" class="card-img-top p-4" style="height: 180px; object-fit: contain;" alt="Garbage Issue">
+          <div class="card-body">
+            <h5 class="card-title">Garbage Collection</h5>
+            <p class="card-text">Missed pickups or overflowing bins? Help us maintain cleanliness in your locality.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Others -->
+      <!-- Street Light -->
+<div class="col-md-6 col-lg-4">
+  <div class="card border-0 shadow-sm h-100 text-center">
+    <img src="assets/img/services/streerlight.webp" class="card-img-top p-4" style="height: 180px; object-fit: contain;" alt="Street Light Issue">
+    <div class="card-body">
+      <h5 class="card-title">Street Light Issues</h5>
+      <p class="card-text">Dim or non-working street lights in your area? Report it to ensure safety and visibility at night.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Stray Animals -->
+<div class="col-md-6 col-lg-4">
+  <div class="card border-0 shadow-sm h-100 text-center">
+    <img src="assets/img/services/stray.png" class="card-img-top p-4" style="height: 180px; object-fit: contain;" alt="Stray Animals">
+    <div class="card-body">
+      <h5 class="card-title">Stray Animal Complaints</h5>
+      <p class="card-text">Report stray dogs, cattle, or wild animals roaming the streets to ensure public safety and prompt action.</p>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Success Stories Section -->
+<section id="success-stories" class="py-5 bg-light">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h3 class="text-success">Success Stories</h3>
+      <p class="text-muted">Real stories from citizens whose issues were resolved through our platform.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Story 1 -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <img src="assets/img/success1.jpg" class="card-img-top fixed-story-img" alt="Success 1">
+          <div class="card-body">
+            <h5 class="card-title">Water Issue Resolved</h5>
+            <p class="card-text">"We had no water for 3 days. After reporting, it was resolved in 24 hours. Thank you QuickFix!"</p>
+            <p class="text-muted"><i class="bi bi-person-circle"></i> Anjali Das, Port Blair</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 2 -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <img src="assets/img/success2.jpg" class="card-img-top fixed-story-img" alt="Success 2">
+          <div class="card-body">
+            <h5 class="card-title">Potholes Repaired</h5>
+            <p class="card-text">"The road near my house had potholes. I complained and it was fixed in 3 days."</p>
+            <p class="text-muted"><i class="bi bi-person-circle"></i> Rakesh Meena, Haddo</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 3 -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <img src="assets/img/success3.webp" class="card-img-top fixed-story-img" alt="Success 3">
+          <div class="card-body">
+            <h5 class="card-title">Streetlights Installed</h5>
+            <p class="card-text">"Dark streets were unsafe. After my complaint, new streetlights were installed promptly."</p>
+            <p class="text-muted"><i class="bi bi-person-circle"></i> Kavita Roy, Aberdeen</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Form Container -->
+<section id="form">
+
+<div class="container">
+  <h2 class="mb-4 text-center">Complaint / Service Request Form</h2>
+   
+  <form action="" method="POST" enctype="multipart/form-data" class="p-4 border rounded bg-light shadow-sm">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" name="name" id="name" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" name="email" id="email" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="text" name="phone" id="phone" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form-label">Issue Category</label>
+      <select name="category" id="category" class="form-select" required>
+        <option value="">-- Select Category --</option>
+        <option>Water Supply</option>
+        <option>Electricity</option>
+        <option>Road Damage</option>
+        <option>Garbage Issue</option>
+        <option>Others</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Issue Description</label>
+      <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input type="text" name="location" id="location" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="photo" class="form-label">Upload Photo (optional)</label>
+      <input type="file" name="photo" id="photo" class="form-control">
+    </div>
+
+    <div class="text-center">
+      <button type="submit" name="submit" class="btn btn-primary px-4">Submit Complaint</button>
+    </div>
+
+  </form>
+</div> 
+</section>
+<br>
+
+   
+    <!-- Reviews -->
+	<section id="reviews" class="reviews section bg-light py-5">
+  <div class="container">
+    <div class="section-title text-center mb-5" data-aos="fade-up">
+      <h3>User Reviews</h3>
+      <p>Here’s what people are saying about our complaint handling system.</p>
+    </div>
+
+    <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="zoom-in" data-aos-delay="100">
+      <div class="carousel-inner">
+
+        <!-- Review 1 -->
+        <div class="carousel-item active">
+          <div class="card shadow-sm border-0 p-4">
+            <div class="card-body text-center">
+			<img src="assets/img/user1.jpeg" alt="Reviewer" class="rounded-circle mb-3" width="80">
+
+              <p class="mb-3">"Very responsive support team. My issue was resolved within hours. Excellent service!"</p>
+              <h5 class="card-title">— Priya Sharma</h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="carousel-item">
+          <div class="card shadow-sm border-0 p-4">
+            <div class="card-body text-center">
+			<img src="assets/img/user2.jpeg" alt="Reviewer" class="rounded-circle mb-3" width="80">
+
+              <p class="mb-3">"The complaint tracking feature helped me stay updated throughout. Highly recommended!"</p>
+              <h5 class="card-title">— Rakesh Mehta</h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="carousel-item">
+          <div class="card shadow-sm border-0 p-4">
+            <div class="card-body text-center">
+			<img src="assets/img/user3.webp" alt="Reviewer" class="rounded-circle mb-3" width="80">
+
+              <p class="mb-3">"Smooth and easy-to-use interface. Lodging a complaint was never this convenient."</p>
+              <h5 class="card-title">— Aarti Verma</h5>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+   <!--reviews end-->
+
+
+  </main>
+
+
+<section id="track" class="about section bg-white py-5">
+  <div class="footer-track bg-light py-5">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h3>Track Your Complaint</h3>
+          <p class="mb-4">Already submitted a complaint? Enter your tracking ID and phone number to check its status.</p>
+
+          <!-- 👇 FORM: POST to same page -->
+          <form method="POST" class="row g-2 justify-content-center">
+            <div class="col-md-4">
+              <input type="text" name="reg_id" class="form-control" placeholder="Registration ID" required>
+            </div>
+            <div class="col-md-4">
+              <input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
+            </div>
+            <div class="col-md-2">
+              <button type="submit" name="track_submit" class="btn btn-success w-100">Track</button>
+            </div>
+          </form>
+
+
+          <!-- 👇 TRACKING RESULT -->
+          <div class="mt-4" id="track-result">
+            <?php
+            if (isset($_POST['track_submit'])) {
+              include("conn.php");
+              $reg_id = $_POST['reg_id'];
+              $phone = $_POST['phone'];
+
+              $stmt = $mysqli->prepare("SELECT name, category, status FROM complaint WHERE reg_id = ? AND phone = ?");
+              $stmt->bind_param("ss", $reg_id, $phone);
+              $stmt->execute();
+              $result = $stmt->get_result();
+
+              if ($row = $result->fetch_assoc()) {
+                echo "<div class='alert alert-info text-start'>";
+                echo "<strong>Name:</strong> " . htmlspecialchars($row['name']) . "<br>";
+                echo "<strong>Category:</strong> " . htmlspecialchars($row['category']) . "<br>";
+                echo "<strong>Status:</strong> <span class='fw-bold'>" . htmlspecialchars($row['status']) . "</span>";
+                echo "</div>";
+              } else {
+                echo "<div class='alert alert-danger'>❌ No complaint found for this Registration ID and Phone number.</div>";
+              }
+
+              $stmt->close();
+              $mysqli->close();
+            }
+            ?>
+          </div>
+          <!-- /TRACKING RESULT -->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Emergency Contacts Section -->
+<section id="emergency-contacts" class="bg-light py-5">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h3 class="text-danger">Emergency Contact Numbers</h3>
+      <p class="text-muted">Reach out to the relevant departments for urgent issues.</p>
+    </div>
+    <div class="row g-4">
+
+      <!-- Water Supply -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-droplet text-primary"></i> Water Supply</h5>
+            <p class="card-text">Municipal Water Board</p>
+            <p><strong>📞 1800-123-4567</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Electricity -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-lightning-charge-fill text-warning"></i> Electricity</h5>
+            <p class="card-text">Electricity Complaint Center</p>
+            <p><strong>📞 1800-987-6543</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Road Damage -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-cone-striped text-danger"></i> Road Damage</h5>
+            <p class="card-text">Public Works Department (PWD)</p>
+            <p><strong>📞 1800-222-3333</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Garbage Issue -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-trash text-success"></i> Garbage Issue</h5>
+            <p class="card-text">Sanitation Department</p>
+            <p><strong>📞 1800-888-9999</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Street Light -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-lightbulb-fill text-info"></i> Street Light</h5>
+            <p class="card-text">Urban Maintenance Unit</p>
+            <p><strong>📞 1800-456-7890</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Others -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-exclamation-circle-fill text-secondary"></i> Others / General Help</h5>
+            <p class="card-text">Municipal Helpline</p>
+            <p><strong>📞 1800-100-2020</strong></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ Section -->
+<section id="faq" class="py-5 bg-light">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h3 class="text-primary">Frequently Asked Questions</h3>
+      <p class="text-muted">Clear answers to common questions about complaint registration and tracking.</p>
+    </div>
+
+    <div class="accordion" id="faqAccordion">
+
+      <!-- FAQ 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true">
+            How do I register a complaint or service request?
+          </button>
+        </h2>
+        <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            You can fill out the complaint form on our homepage with all required details and submit it. You'll receive a unique registration ID for tracking.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+            How can I track the status of my complaint?
+          </button>
+        </h2>
+        <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Use the "Track Your Complaint" section and enter your Registration ID and Phone Number to check the current status.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+            What are the possible status stages of a complaint?
+          </button>
+        </h2>
+        <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Complaints go through the following stages: <strong>Pending → Verified → In Progress → Resolved</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4">
+            Can I upload an image for my complaint?
+          </button>
+        </h2>
+        <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, uploading an image or photo related to your issue is optional but helpful for faster resolution.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5">
+            I lost my registration ID. What should I do?
+          </button>
+        </h2>
+        <div id="faqCollapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Please contact our support team via phone or submit a help request. We'll verify your identity and retrieve your complaint.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading6">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6">
+            What happens after my complaint is resolved?
+          </button>
+        </h2>
+        <div id="faqCollapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Once your complaint is marked as resolved, you'll have the option to submit feedback to help us improve our services.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Help & Support Section -->
+<section id="support" class="py-5 bg-white">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h3 class="text-primary">Help & Support</h3>
+      <p class="text-muted">Need assistance? We're here to help you with anything related to complaints and services.</p>
+    </div>
+    <div class="row g-4">
+
+      <!-- FAQ -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-primary">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-question-circle text-primary"></i> Frequently Asked Questions</h5>
+            <p class="card-text">Find answers to common queries about complaint registration, tracking, and resolution.</p>
+            <a href="#faq" class="btn btn-outline-primary btn-sm mt-2">View FAQs</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Chat or Call -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-success">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-headset text-success"></i> Talk to Support</h5>
+            <p class="card-text">Need help urgently? Our support team is available to take your call or chat live.</p>
+            <p><strong>📞 1800-123-4567</strong> (9 AM - 6 PM)</p>
+            <a href="tel:18001234567" class="btn btn-outline-success btn-sm mt-2">Call Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit a Ticket -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-warning">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-envelope-open text-warning"></i> Submit a Support Ticket</h5>
+            <p class="card-text">Didn't find your answer? Submit your query and we’ll respond within 24 hours.</p>
+            <a href="#form" class="btn btn-outline-warning btn-sm mt-2">Submit Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Privacy & Protection Section -->
+<section id="privacy" class="py-5 bg-white border-top">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h3 class="text-primary">Privacy & Data Protection</h3>
+      <p class="text-muted">Your data is safe with us. Here's how we protect your information.</p>
+    </div>
+
+    <div class="row gy-4">
+
+      <div class="col-md-6 d-flex">
+        <div class="me-3">
+          <i class="bi bi-shield-lock-fill fs-1 text-success"></i>
+        </div>
+        <div>
+          <h5>Data Security</h5>
+          <p>We use secure servers and modern encryption methods to ensure your complaint data is protected at all times.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex">
+        <div class="me-3">
+          <i class="bi bi-person-fill-lock fs-1 text-warning"></i>
+        </div>
+        <div>
+          <h5>Confidentiality</h5>
+          <p>All your personal information, including phone number, email, and location, is kept strictly confidential and never shared without consent.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex">
+        <div class="me-3">
+          <i class="bi bi-file-earmark-lock-fill fs-1 text-info"></i>
+        </div>
+        <div>
+          <h5>Access Control</h5>
+          <p>Only authorized officials and support staff can view or act on your submitted complaints.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex">
+        <div class="me-3">
+          <i class="bi bi-shield-check fs-1 text-primary"></i>
+        </div>
+        <div>
+          <h5>User Consent</h5>
+          <p>We collect and use your data only for complaint management purposes and with your permission.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- footer section -->
+ <footer id="footer" class="footer bg-dark text-white pt-5">
+  <div class="container">
+    <div class="row gy-4 justify-content-between">
+
+      <!-- About -->
+      <div class="col-lg-4 col-md-6">
+        <h5 class="mb-3 text-warning">QuickFix</h5>
+        <p>QuickFix is dedicated to resolving public complaints efficiently. We connect citizens and departments with fast response mechanisms for community improvement.</p>
+        <ul class="list-unstyled mt-3">
+          <li><strong>Location:</strong> Port Blair, Andaman & Nicobar Islands</li>
+          <li><strong>Phone:</strong> +1 5589 55488 55</li>
+          <li><strong>Email:</strong> support@quickfix.com</li>
+        </ul>
+      </div>
+
+      <!-- Useful Links -->
+      <div class="col-lg-2 col-md-4">
+        <h6 class="text-uppercase mb-3">Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-chevron-right me-1 text-warning"></i><a href="#" class="text-white text-decoration-none">Home</a></li>
+          <li><i class="bi bi-chevron-right me-1 text-warning"></i><a href="#about" class="text-white text-decoration-none">About Us</a></li>
+          <li><i class="bi bi-chevron-right me-1 text-warning"></i><a href="#services" class="text-white text-decoration-none">Services</a></li>
+          <li><i class="bi bi-chevron-right me-1 text-warning"></i><a href="terms.php" class="text-white text-decoration-none">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="col-lg-4 col-md-12">
+        <h6 class="text-uppercase mb-3">Follow Us</h6>
+        <p>Stay connected with QuickFix for real-time updates and service alerts that help build a better, smarter community.</p>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="row mt-4 border-top pt-3">
+      <div class="col text-center">
+        <p class="mb-1">© 2025 <strong class="text-warning">QuickFix</strong>. All rights reserved.</p>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+  
+  
+  <!-- Include PureCounter (if not already included) -->
+<!-- Load PureCounter -->
+<script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
+<!-- Bootstrap JS CDN (include before </body>) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Glightbox JS -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+<script>
+  const lightbox = GLightbox({
+    selector: '.glightbox'
+  });
+</script>
+
+
+
+<script>
+  function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // Generate related realistic numbers
+  let totalComplaints = getRandom(300, 800);
+  let resolvedComplaints = getRandom(150, totalComplaints - 50);
+  let pendingComplaints = totalComplaints - resolvedComplaints;
+  let agents = getRandom(10, 25);
+
+  // Set attributes for animation
+  const stats = [
+    { id: 'stat-total', value: totalComplaints },
+    { id: 'stat-resolved', value: resolvedComplaints },
+    { id: 'stat-pending', value: pendingComplaints },
+    { id: 'stat-agents', value: agents },
+  ];
+
+  stats.forEach(stat => {
+    const el = document.getElementById(stat.id);
+    el.setAttribute('data-purecounter-start', 0);
+    el.setAttribute('data-purecounter-end', stat.value);
+    el.setAttribute('data-purecounter-duration', 1);
+  });
+
+  // Start counting animation
+  new PureCounter();
+</script>
+
+<script>
+        function submitForm() {
+		
+var reg_id = document.getElementById("reg_id");
+var phone = document.getElementById("phone");
+
+ var reg_id=reg_id.value;
+	var phone=phone.value;
+	
+	if(reg_id=="")
+	{
+	alert("Register number is empty");
+	return false;
+	}
+	else if(phone=="")
+	{
+	alert("phone number is empty");
+	return false;
+	}
+
+debugger;
+ 	$.ajax({
+	type: "POST",
+	url: "ajax_track.php",
+    data:{p_type:'F',reg_id:reg_id,phone:phone},
+		success: function(response)
+		{
+		$("#tracks").html(response);
+		//alert("hello");
+		
+		}
+	
+	});
+        }
+    </script>
+
+<script>
+  //let fontSize = 100;
+  let underlineOn = false;
+
+  function toggleHighContrast() {
+    document.body.classList.toggle("high-contrast");
+  }
+
+  function increaseFontSize() {
+    fontSize += 10;
+    document.body.style.fontSize = fontSize + "%";
+  }
+
+  function decreaseFontSize() {
+    if (fontSize > 70) {
+      fontSize -= 10;
+      document.body.style.fontSize = fontSize + "%";
+    }
+  }
+
+  function toggleDyslexiaFont() {
+    document.body.classList.toggle("dyslexia-font");
+  }
+
+  function toggleGrayscale() {
+    document.body.classList.toggle("grayscale");
+  }
+
+  function underlineLinks() {
+    underlineOn = !underlineOn;
+    if (underlineOn) {
+      document.body.classList.add("underline-links");
+    } else {
+      document.body.classList.remove("underline-links");
+    }
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+
+  function resetAccessibility() {
+    document.body.classList.remove(
+      "high-contrast",
+      "dyslexia-font",
+      "grayscale",
+      "underline-links",
+      "dark-mode"
+    );
+    fontSize = 100;
+    document.body.style.fontSize = "100%";
+  }
+</script>
+
+
+</body>
+
+</html>
+
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include("conn.php");
+
+if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Collect form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $category = $_POST['category'];
+    $description = $_POST['description'];
+    $location = $_POST['location'];
+
+    // File upload
+    $photo = "";
+    if (!empty($_FILES['photo']['name'])) {
+        $photoName = basename($_FILES['photo']['name']);
+        $targetDir = "uploads/";
+        $targetFile = $targetDir . time() . "_" . $photoName;
+
+        if (move_uploaded_file($_FILES['photo']['tmp_name'], $targetFile)) {
+            $photo = $targetFile;
+        }
+    }
+
+    // Generate Reg ID
+    $stmt = $mysqli->prepare("SELECT MAX(id) AS id FROM complaint");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $ref_id = ($row['id'] + 1) . date('dmy');
+    $reg_id = $ref_id;
+
+$status = "Pending"; // Default status
+
+   $stmt = $mysqli->prepare("INSERT INTO complaint(reg_id, name, email, phone, category, description, location, photo, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssss", $reg_id, $name, $email, $phone, $category, $description, $location, $photo, $status);
+
+	
+
+    if ($stmt->execute()) {
+    echo "<script>alert('Complaint Submitted Successfully! Your Reg. ID is $reg_id');</script>";
+    // OR with redirect:
+    // echo "<script>alert('Complaint Submitted Successfully! Your Reg. ID is $reg_id'); window.location.href = 'index.php';</script>";
+} else {
+    echo "<script>alert('Error: " . $stmt->error . "');</script>";
+}
+
+
+    $stmt->close();
+    $mysqli->close();
+}
+?> 

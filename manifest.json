@@ -1,0 +1,16 @@
+{
+  "name": "Quick Fix",
+  "short_name": "QuickFix",
+  "start_url": "/payal/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2196f3",
+  "icons": [
+   
+    {
+      "src": "assets/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

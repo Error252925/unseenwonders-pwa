@@ -1,7 +1,7 @@
 {
   "name": "Quick Fix",
   "short_name": "QuickFix",
-  "start_url": "/payal/index.html",
+  "start_url": "/payal/index.php",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2196f3",
@@ -14,3 +14,4 @@
     }
   ]
 }
+
